@@ -4,6 +4,9 @@ body {
     align-content: center;;
 }
 
+.jumbotron {
+    margin: auto;
+}
 .form-group {
     width: 200px;
 }
