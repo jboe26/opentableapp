@@ -1,0 +1,14 @@
+body {
+    margin: auto;
+    background-color: white;
+    align-content: center;;
+}
+
+.form-group {
+    width: 200px;
+}
+
+#makeReservation {
+    display: none;
+    
+}
