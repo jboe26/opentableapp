@@ -60,9 +60,17 @@ app.post("/api/reservations", function (req, res) {
 
     console.log(newReservation);
 
-    reservations.push(newReservation);
+    if (reservations.length < 5) {
 
-    res.json(newReservation);
+        reservations.push(newReservation);
+        res.json(newReservation);
+
+    } else {
+
+        waitlist.push(newReservation);
+        res.json(newReservation);
+    }
+
 });
 
 app.listen(PORT, function () {
