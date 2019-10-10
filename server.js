@@ -62,10 +62,18 @@ app.post("/api/reservations", function (req, res) {
     console.log(newReservation);
 
     if (reservations.length < 5) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c477aeb024b3d1c52ccefeebf589594fed23133f
         reservations.push(newReservation);
         res.json(newReservation);
 
     } else {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c477aeb024b3d1c52ccefeebf589594fed23133f
         waitlist.push(newReservation);
         res.json(newReservation);
     }
