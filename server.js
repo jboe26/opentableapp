@@ -56,13 +56,20 @@ app.post("/api/reservations", function (req, res) {
 
     var newReservation = req.body;
 
+
     // newReservation.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
 
     console.log(newReservation);
 
-    reservations.push(newReservation);
+    if (reservations.length < 5) {
+        reservations.push(newReservation);
+        res.json(newReservation);
 
-    res.json(newReservation);
+    } else {
+        waitlist.push(newReservation);
+        res.json(newReservation);
+    }
+
 });
 
 app.listen(PORT, function () {
