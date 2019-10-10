@@ -9,6 +9,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="opentable.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Make Reservation</title>
 </head>
 
@@ -34,14 +36,28 @@
             <input type="numbers" class="form-control" id="exampleInputID" aria-describedby="idHelp"
                 placeholder="Enter a Unique ID">
         </div>
-        <button type="submit" class="btn btn-danger">Submit</button>
+        <button type="submit" class="btn btn-primary" id="add-reservation">Submit</button>
     </form>
 
     <script type="text/javascript">
+        
+        $("#add-reservation").on("click", function(event) {
+          event.preventDefault();
+          var newReservation = {
+            name: $("#exampleInputName").val().trim(),
+            phone: $("#exampleInputPhone").val().trim(),
+            email: $("#exampleInputEmail").val().trim(),
+            id: $("#exampleInputID").val().trim()
+          };
+          console.log(newReservation)
     
-    
-    
-    </script>
+          $.post("/api/reservations", newReservation)
+            .then(function(data) {
+            //   console.log("add.html", data);
+            //   alert("Adding character...");
+            });
+        });
+      </script>
 </body>
 
 </html>
